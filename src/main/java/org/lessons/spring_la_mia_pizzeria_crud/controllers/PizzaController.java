@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/pizzas")
@@ -19,9 +20,15 @@ public class PizzaController {
     private PizzaRepo repo;
 
     @GetMapping
-    public String index(Model model) {
-        List<Pizza> pizzas = repo.findAll();
+    public String index(@RequestParam(required = false) String search, Model model) {
+        List<Pizza> pizzas;
+        if (search == null || search.isBlank()) {
+            pizzas = repo.findAll();
+        } else {
+            pizzas = repo.findByNameContainingIgnoreCaseOrBioContainingIgnoreCase(search, search);
+        }
         model.addAttribute("pizzas", pizzas);
+        model.addAttribute("search", search);
 
         return "pizzas/index";
     }
