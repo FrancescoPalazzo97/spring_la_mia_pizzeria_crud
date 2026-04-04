@@ -29,7 +29,7 @@
                         <tbody>
                             <tr th:each="pizza : ${pizzas}" th:object="${pizza}">
                                 <td>[[*{id}]]</td>
-                                <td>[[*{name}]]</td>
+                                <td> <a th:href="@{|/pizzas/*{id}|}">[[*{name}]]</a></td>
                                 <td>[[*{bio}]]</td>
                                 <td>[[*{price}]] &euro;</td>
                             </tr>
