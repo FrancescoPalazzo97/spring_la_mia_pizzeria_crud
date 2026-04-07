@@ -70,7 +70,7 @@ public class Pizza {
     }
 
     public Integer getPrice() {
-        return this.price / 100;
+        return this.price;
     }
 
     public void setPrice(Integer price) {
