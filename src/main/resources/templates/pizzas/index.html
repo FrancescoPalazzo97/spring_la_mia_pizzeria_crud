@@ -27,6 +27,8 @@
                                 <th>name</th>
                                 <th>bio</th>
                                 <th>price</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,6 +37,10 @@
                                 <td> <a th:href="@{|/pizzas/*{id}|}">[[*{name}]]</a></td>
                                 <td>[[*{bio}]]</td>
                                 <td>[[*{price / 100}]] &euro;</td>
+                                <td>
+                                    <a th:href="@{pizzas/edit/{id}(id=*{id})}" class="btn btn-success btn-sm">Edit</a>
+                                </td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>
