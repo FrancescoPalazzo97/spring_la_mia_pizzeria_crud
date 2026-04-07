@@ -31,7 +31,7 @@
                                 <td>[[*{id}]]</td>
                                 <td> <a th:href="@{|/pizzas/*{id}|}">[[*{name}]]</a></td>
                                 <td>[[*{bio}]]</td>
-                                <td>[[*{price}]] &euro;</td>
+                                <td>[[*{price / 100}]] &euro;</td>
                             </tr>
                         </tbody>
                     </table>

@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -33,7 +33,7 @@ public class Pizza {
     private String photoUrl;
 
     @NotNull(message = "Price cannot be NULL")
-    @PositiveOrZero(message = "Price cannot be negative")
+    @Positive(message = "Price cannot be negative or zero")
     @Column(nullable = false)
     private Integer price;
 
